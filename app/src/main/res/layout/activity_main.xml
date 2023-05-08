@@ -45,6 +45,15 @@
             android:text="@string/save"
             tools:ignore="MissingConstraints,OnClick" />
 
+        <Button
+            android:id="@+id/secondActivityButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/settingseditview"
+            android:onClick="savePref"
+            android:text="@string/OpenSecondActivity"
+            tools:ignore="MissingConstraints,OnClick" />
+
         <TextView
             android:id="@+id/prefText"
             android:layout_width="match_parent"
