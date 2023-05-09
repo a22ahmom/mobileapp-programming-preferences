@@ -18,12 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <!--<TextView
-            android:id="@+id/prefText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:ignore="MissingConstraints" />-->
-
         <Button
             android:id="@+id/closeSecondActivity"
             android:layout_width="wrap_content"
@@ -43,7 +37,5 @@
             android:onClick="savePref" />
 
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

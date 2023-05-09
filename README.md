@@ -1,39 +1,49 @@
 
 # Rapport
 
-**Skriv din rapport här!**
+**Det första problemet i programmet löstes genom att skriva ett par rader av kod som skulle läsa in data med sharedpreferences och kodet skrevs i onCrete() i mainactivity.
+Koden finns tillgänglig i kodsnippet. Det andra problemet löstes genom att skapa en annan screeen eller activity genom att skapa först en secondActivity java fil och en 
+second_activity xml fil. Därefter implementerades lite kod i både de två filerna och mainActivity för att sammankoppla de genom att implementera en knapp i mainActivity
+för att ta användaren till den andra activity och även en knapp som skulle ta användaren tillbaka från secondActivity till mainActivity. Det sista problemet löstes genom att
+skriva data i secondActivity spara det och sedan skulle det finnas kvar i mainActivity vilket det gör och detta löstes helt enkelt genom att det implementerades lite kod i
+alla fyra filerna för att få det hela att fungera som det skulle. Det som också gjordes var att istället för att läsa data i onCrete() implementerades det istället i onResume()
+i mainActivty. Kodet finns i kodsnippet lite ner. **
 
-_Du kan ta bort all text som finns sedan tidigare_.
-
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
 
 Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
+    protected void onResume() {
+        super.onResume();
+
+        myPreferenceRef = getSharedPreferences("MyPreferencesName", MODE_PRIVATE);
+        myPreferenceEditor = myPreferenceRef.edit();
+
+        // Read a preference
+        prefTextRef = new TextView(this);
+        prefTextRef = (TextView)findViewById(R.id.prefText);
+        prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
     }
-}
+
+    public void savePref(View view){
+        // Get the text
+        EditText newPrefText = new EditText(this);
+        newPrefText = (EditText)findViewById(R.id.settingseditview);
+
+        // Store the new preference
+        myPreferenceEditor.putString("MyAppPreferenceString", newPrefText.getText().toString());
+        myPreferenceEditor.apply();
+
+        newPrefText.setText("");
+    }
+
 ```
 
 Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+![](mainActivity.png)
+![](secondActivity.png)
+![](backToMainActivity.png)
 
 Läs gärna:
 

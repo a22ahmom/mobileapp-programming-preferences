@@ -22,7 +22,6 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_activity);
-        //TextView textView = findViewById(R.id.prefText);
 
         // Get a reference to the shared preference
         myPreferenceRef = getSharedPreferences("MyPreferencesName", MODE_PRIVATE);
@@ -33,8 +32,6 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
-                //savePref(view);
-
             }
         });
     }
@@ -48,14 +45,6 @@ public class SecondActivity extends AppCompatActivity {
         myPreferenceEditor.putString("MyAppPreferenceString", newPrefText.getText().toString());
         myPreferenceEditor.apply();
 
-        // Display the new preference
-        /*TextView prefTextRef = new TextView(this);
-        prefTextRef = (TextView)findViewById(R.id.prefText);
-        prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
-
-         */
-
-        // Clear the EditText
         newPrefText.setText("");
     }
 
