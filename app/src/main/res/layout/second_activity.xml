@@ -6,24 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
 
-    <TextView
-        android:id="@+id/myTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="This is SecondActivity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/closeSecondActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Close second activity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myTextView" />
+        <EditText
+            android:id="@+id/settingseditview"
+            android:hint="EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!--<TextView
+            android:id="@+id/prefText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints" />-->
+
+        <Button
+            android:id="@+id/closeSecondActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close second activity"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/myTextView" />
+
+        <Button
+            android:id="@+id/prefButton"
+            android:text="@string/save"
+            android:layout_below="@+id/settingseditview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="savePref" />
+
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
